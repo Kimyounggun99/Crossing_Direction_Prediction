@@ -27,9 +27,6 @@ Ensure you have the necessary dependencies installed for each repository before 
 Prepare your dataset by organizing videos from the same CCTV source in the same folder. Define the **target waiting area** for pedestrians and the **crosswalk direction** reference point `{I}`.
 
 ### Feature Extraction
-
-#### Example Image:
-
 ![intersection](https://github.com/user-attachments/assets/7af85e64-2b0e-4003-9620-f53f6972462a)
 
 
