@@ -12,12 +12,7 @@ To ensure compatibility and smooth execution, please provide the following detai
 ---
 
 ## 2. Requirements
-This project builds upon the following repositories. Please clone them and refer to their documentation:
-- **RTMPose3D**: [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/main/projects/rtmpose)
-- **PedCMT**: [PedCMT](https://github.com/xbchen82/PedCMT)
-- **PedGraph+**: [PedGraph+](https://github.com/RodrigoGantier/Pedestrian_graph_plus.git)
-
-Ensure you have the necessary dependencies installed for each repository before proceeding.
+This project builds upon [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/main/projects/rtmpose), [PedCMT](https://github.com/xbchen82/PedCMT), [PedGraph+](https://github.com/RodrigoGantier/Pedestrian_graph_plus.git) repositories. Please refer to their documentation for requirements. Ensure you have the necessary dependencies installed for each repository before proceeding.
 
 ---
 
