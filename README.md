@@ -26,9 +26,9 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
    ```bash
    python Extract_target_area --data_path {your video path}
    ```
-2. Assign the pixel values of your target waiting area to the 'Target_regio'n variable in 'Feature_extraction'.py.
+2. Assign the pixel values of your target waiting area to the `Target_region` variable in `Feature_extraction`.py.
 
-3. Map the pixel values for '{I}' to 'p1', 'p2', and 'p3' in 'mapping_2d_to_3d.py'.
+3. Map the pixel values for `{I}` to `p1`, `p2`, and `p3` in `utils.py`.
 
 4. Extract pedestrian features and save them as a CSV file using:
    ```bash
