@@ -6,11 +6,9 @@ This repository contains the implementation for pedestrian crossing intention pr
 
 ## 1. Environment
 To ensure compatibility and smooth execution, please provide the following details of your system environment:
-- Operating System (e.g., Ubuntu 20.04, Windows 10)
-- Python version (e.g., Python 3.8)
-- GPU and CUDA version (if applicable)
-- Required Python libraries (e.g., PyTorch, OpenMMLab packages)
-
+- Operating System: Ubuntu 22.04
+- Python version: Python 3.8
+- CUDA version: 12.4
 ---
 
 ## 2. Requirements
@@ -31,7 +29,9 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
 ### Feature Extraction
 
 #### Example Image:
-*(Attach a visual representation of the target area and pedestrian detection zones.)*
+
+![intersection](https://github.com/user-attachments/assets/7af85e64-2b0e-4003-9620-f53f6972462a)
+
 
 #### Steps:
 1. Extract the target area using the following command:
