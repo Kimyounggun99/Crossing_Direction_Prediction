@@ -1,9 +1,5 @@
 # Pedestrian Crossing Intention Prediction at Intersections
 
-This repository contains the implementation for pedestrian crossing intention prediction using a combination of RTMPose3D, PedCMT, and PedGraph+ frameworks. The project involves data preparation, feature extraction, and training/testing a Transformer-based model.
-
----
-
 ## 1. Environment
 To ensure compatibility and smooth execution, please provide the following details of your system environment:
 - Operating System: Ubuntu 22.04
@@ -40,10 +36,10 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
    https://download.openmmlab.com/mmpose/v1/projects/rtmpose/rtmdet_m_8xb32-100e_coco-obj365-person-235e8209.pth \
    configs/rtmw3d-l_8xb64_cocktail14-384x288.py \
    https://download.openmmlab.com/mmpose/v1/wholebody_3d_keypoint/rtmw3d/rtmw3d-l_8xb64_cocktail14-384x288-794dbc78_20240626.pth \
-   --input '{./Your_path/cam_num/input_video.avi}' \
+   --input {./Your_path/cam_num/input_video.avi} \
    --cam_num {specify camera number based on the Target_region} \
-   --root_path '{./Your_path/cam_num}' \
-   --output-root '{./Your_path/output}'
+   --root_path {./Your_path/cam_num} \
+   --output-root {./Your_path/output}
    ```
 
 ## 4. Model Training & Testing
