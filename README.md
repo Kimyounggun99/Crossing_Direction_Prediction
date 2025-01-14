@@ -65,3 +65,9 @@ Test the model using:
    --model Transformer_based_model \
    --load {./Your_path/checkpoints/checkpoint_file.pth}
    ```
+
+
+## Acknowledgment
+This repository is based on [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/main/projects/rtmpose), [PedCMT](https://github.com/xbchen82/PedCMT), [PedGraph+](https://github.com/RodrigoGantier/Pedestrian_graph_plus.git) repositories. 
+
+The code for generating point clouds of arbitrary unseen domains from a specific source dataset is constructed based on [PDEN](https://github.com/lileicv/PDEN).
