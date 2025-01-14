@@ -75,5 +75,5 @@ Test the model using:
    --experiment-type {TTE(Time to Event)/SEQ(All waiting period)} \
    --mode test \
    --model Transformer_based_model \
-   --load ./Your_path/checkpoints/{checkpoint_file.pth}
+   --load {./Your_path/checkpoints/checkpoint_file.pth}
    ```
