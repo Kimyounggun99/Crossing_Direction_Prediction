@@ -1,6 +1,7 @@
 # Pedestrian Crossing Intention Prediction at Intersections
 
 
+![GIF Preview](Geo_invariant_gif.gif)
 
 ## 1. Environment
 To ensure compatibility and smooth execution, please provide the following details of your system environment:
@@ -46,8 +47,6 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
 
 
 
-Once you finish above steps, we obtain geometric-invariant key point features.
-![GIF Preview](Geo_invariant_gif.gif)
 
 ## 4. Model Training & Testing
 
