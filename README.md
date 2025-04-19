@@ -17,10 +17,11 @@ This project builds upon [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/m
 
 ## 3. Data Preparation and Feature Extraction
 
-### Data Preparation
+### 3-1. Data Preparation for own data usage
+If you want to use our key points and trajectories data, you can skip this step. 
 Prepare your dataset by organizing videos from the same CCTV source in the same folder. Define the **target waiting area** for pedestrians and the **crosswalk direction** reference point `{I}`.
 
-### Feature Extraction
+#### Feature Extraction
 ![intersection](https://github.com/user-attachments/assets/7af85e64-2b0e-4003-9620-f53f6972462a)
 
 
@@ -45,30 +46,40 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
    --output-root {./Your_path/output}
    ```
 
+### 3-2. Data Preparation to use our data.
+Since visual information from CCTV may occur important privacy issues, We provide only trajectories and key points.
+Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) and build following data structure:
 
+```bash
+./YourPath/CCTV_data
+├── train
+├── test
+```
 
+## 4. Model Zoo: TODO
 
-## 4. Model Training & Testing
-
-### Training
+## 5. Model Training 
+#### You can skip this step if you use our weight files.
 Train the model using the following command:
 
    ```bash
-   python main.py --observation-time {Specify observation time} \
+   python main.py --observation-time {Specify observation time(1-4)} \
    --experiment-type {TTE(Time to Event)/SEQ(All waiting period)} \
+   --input_dir {./YourPath/CCTV_data} \
    --mode train \
-   --model Transformer_based_model \
+   --model {Transformer_based_model/GCN_based_model/Transformer_GCN_mixing_model} \
    --save_dir {./Your_path/checkpoints} \
    --output_dir {./Your_path/logs}
    ```
 
-### Testing
+## 6. Testing
 Test the model using:
    ```bash
    python main.py --observation-time {Specify observation time} \
    --experiment-type {TTE(Time to Event)/SEQ(All waiting period)} \
+   --input_dir {./YourPath/CCTV_data} \
    --mode test \
-   --model Transformer_based_model \
+   --model {Transformer_based_model/GCN_based_model/Transformer_GCN_mixing_model} \
    --load {./Your_path/checkpoints/checkpoint_file.pth}
    ```
 
