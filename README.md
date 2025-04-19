@@ -49,7 +49,7 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
 
 ### 3-2. Data Preparation to use our data.
 Since visual information from CCTV may occur important privacy issues, We provide only trajectories and key points.
-Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) and build following data structure:
+Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FCCTV%5Fdata&login_hint=yo171134%40ucf%2Eedu) and build following data structure:
 
 ```bash
 ./YourPath/CCTV_data
@@ -63,9 +63,9 @@ We provide each model's weight trained on the observation time window 4 seconds.
 
 | Model | Accuracy | F1-Score | Precision | Recall | Download |
 |----------|----------------|---------------|----------------------|-----------------|--------------------|
-| GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
-| Transformer |  |  |  |  | [Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
-| Transformer+GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
+| GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FGCN&login_hint=yo171134%40ucf%2Eedu) |
+| Transformer |  |  |  |  | [Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FTransformer&login_hint=yo171134%40ucf%2Eedu) |
+| Transformer+GCN |  |  |  |  | [GCN+Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FTransformer%2BGCN&login_hint=yo171134%40ucf%2Eedu) |
 
 ## 5. Model Training 
 #### You can skip this step if you use our weight files.
