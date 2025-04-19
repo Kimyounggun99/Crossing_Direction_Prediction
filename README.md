@@ -18,7 +18,7 @@ This project builds upon [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/m
 ## 3. Data Preparation and Feature Extraction
 
 ### 3-1. Data Preparation for own data usage
-If you want to use our key points and trajectories data, you can skip this step. 
+If you want to use our key points and trajectories data, you can skip this step. \n
 Prepare your dataset by organizing videos from the same CCTV source in the same folder. Define the **target waiting area** for pedestrians and the **crosswalk direction** reference point `{I}`.
 
 #### Feature Extraction
