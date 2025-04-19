@@ -59,6 +59,14 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 
 ## 4. Model Zoo: TODO
 
+*Note: We recommend using the most capable LLaVA-v1.6 series above for the best performance.*
+
+| Model | Accuracy | F1-Score | Precision | Recall | Download |
+|----------|----------------|---------------|----------------------|-----------------|--------------------|
+| GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
+| Transformer |  |  |  |  | [Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
+| Transformer+GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction&login_hint=yo171134%40ucf%2Eedu) |
+
 ## 5. Model Training 
 #### You can skip this step if you use our weight files.
 Train the model using the following command:
