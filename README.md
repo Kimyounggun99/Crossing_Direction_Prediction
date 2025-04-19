@@ -59,7 +59,7 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 
 ## 4. Model Zoo: TODO
 
-*Note: We recommend using the most capable LLaVA-v1.6 series above for the best performance.*
+We provide each model's weight trained on the observation time window 4 seconds.
 
 | Model | Accuracy | F1-Score | Precision | Recall | Download |
 |----------|----------------|---------------|----------------------|-----------------|--------------------|
