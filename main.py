@@ -72,20 +72,18 @@ def main():
     # Dummy model for example
 
     if args.model=='Transformer_based_model':
-        model= Transformer_based_model(device=device)
+        model= Transformer_based_model(device=device, args=args)
     elif args.model=='GCN_based_model':
-        model= GCN_based_model(device=device)
+        model= GCN_based_model(device=device, args=args)
     elif args.model=='Transformer_GCN_mixing_model':
-        model= Transformer_GCN_mixing_model(device=device)
+        model= Transformer_GCN_mixing_model(device=device, args=args)
     else:
         breakpoint()
 
     # Set up logging
     
-    if args.raw_point:
-        log_file = f'{args.output_dir}/ablation/{args.model}_rawpoints_observ_{args.observation_time}sec.txt'
-    else:
-        log_file = f'{args.output_dir}/{args.experiment_type}/{args.model}_observ_{args.observation_time}sec.txt'
+
+    log_file = f'{args.output_dir}/{args.experiment_type}/{args.model}_observ_{args.observation_time}sec.txt'
     
     logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(message)s')
     logging.info("Training started...")
@@ -101,10 +99,8 @@ def main():
         best_acc = 0
       
         
-        if args.raw_point:
-            best_model_path = f'{args.save_dir}/ablation/{args.model}_rawpoints_observ_{args.observation_time}sec.pth'
-        else:
-            best_model_path = f'{args.save_dir}/{args.experiment_type}/{args.model}_observ_{args.observation_time}sec.pth'
+
+        best_model_path = f'{args.save_dir}/{args.experiment_type}/{args.model}_observ_{args.observation_time}sec.pth'
         # Training loop
         for epoch in range(args.epoch):  # Number of epochs
             model.train()
