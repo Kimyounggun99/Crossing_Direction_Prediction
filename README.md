@@ -77,9 +77,25 @@ Train the model using the following command:
    --input_dir {./YourPath/CCTV_data} \
    --mode train \
    --model {Transformer_based_model/GCN_based_model/Transformer_GCN_mixing_model} \
+   --num_layers {number of layers} \
+   --num_heads {number of attention heads: for transformer and transformer+GCN} \
+   --num_adj_subset {number of adjacency subsets for GCN and transformer+GCN } \
    --save_dir {./Your_path/checkpoints} \
    --output_dir {./Your_path/logs}
    ```
+Example (Transformer):
+```bash
+   python main.py --observation-time 4 \
+   --experiment-type SEQ \
+   --input_dir ./CCTV_data \
+   --mode train \
+   --model Transformer_based_model \
+   --num_layers 3 \
+   --num_heads 128 \
+   --save_dir ./checkpoints \
+   --output_dir ./logs
+```
+
 
 ## 6. Testing
 Test the model using:
@@ -89,9 +105,23 @@ Test the model using:
    --input_dir {./YourPath/CCTV_data} \
    --mode test \
    --model {Transformer_based_model/GCN_based_model/Transformer_GCN_mixing_model} \
+   --num_layers {number of layers} \
+   --num_heads {number of attention heads: for transformer and transformer+GCN} \
+   --num_adj_subset {number of adjacency subsets for GCN and transformer+GCN } \
    --load {./Your_path/checkpoints/checkpoint_file.pth}
    ```
-
+Example (Transformer):
+```bash
+   python main.py --observation-time 4 \
+   --experiment-type SEQ \
+   --input_dir ./CCTV_data \
+   --mode test \
+   --model Transformer_based_model \
+   --num_layers 3 \
+   --num_heads 128 \
+   --save_dir ./checkpoints/Transformer_based_model_observ_4sec.pth \
+   --output_dir ./logs
+```
 
 ## Acknowledgment
 This repository is based on [RTMPose3D](https://github.com/open-mmlab/mmpose/tree/main/projects/rtmpose), [PedCMT](https://github.com/xbchen82/PedCMT), [PedGraph+](https://github.com/RodrigoGantier/Pedestrian_graph_plus.git) repositories. 
