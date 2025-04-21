@@ -8,17 +8,20 @@ from .BottleNecks import Bottlenecks, Bottlenecks_origin
 from einops import repeat
 
 class Transformer_based_model(nn.Module):
-    def __init__(self,device):
+    def __init__(self,device, args):
         super(Transformer_based_model, self).__init__()
-        self.sigma_cls = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的分类损失参数
+        self.sigma_cls = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True)
         nn.init.kaiming_normal_(self.sigma_cls, mode='fan_out') 
-        self.sigma_reg = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的回归损失参数
+        self.sigma_reg = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) 
         nn.init.kaiming_normal_(self.sigma_reg, mode='fan_out')  
         self.device=device
-        d_model = 128
-        hidden_dim = 256
+        d_model = args.d_model #128
+        hidden_dim = args.hidden_dim #256
         modal_nums = 3
-        self.num_layers = 4
+        self.num_layers = args.num_layers#4
+
+        self.num_heads= args.num_heads #8
+
         self.token = nn.Parameter(torch.ones(1, 1, d_model)).to(device)
 
         self.center_embedding = EmbedPosEnc(4, d_model,device) 
@@ -37,20 +40,20 @@ class Transformer_based_model(nn.Module):
         self.cross_ffn = nn.ModuleList()
 
         for _ in range(self.num_layers):
-            self.center_att.append(AttentionBlocks(d_model, 8, device=device)) 
+            self.center_att.append(AttentionBlocks(d_model, self.num_heads, device=device)) 
             self.center_ffn.append(FFN(d_model, hidden_dim, device=device))
-            self.kp_att.append(AttentionBlocks(d_model, 8, device=device))
+            self.kp_att.append(AttentionBlocks(d_model, self.num_heads, device=device))
             self.kp_ffn.append(FFN(d_model, hidden_dim, device=device))
-            self.cross_att.append(AttentionBlocks(d_model, 8, device=device)) 
+            self.cross_att.append(AttentionBlocks(d_model, self.num_heads, device=device)) 
             self.cross_ffn.append(FFN(d_model, hidden_dim, device=device))
 
         self.dense = nn.Linear(modal_nums * d_model, 4).to(device)
         self.bottlenecks = Bottlenecks(d_model).to(device)
-        self.time_att = Time_att(dims=3).to(device) # Time_att
-        self.endp = nn.Linear(modal_nums * d_model, 4).to(device) # 全连接层
+        self.time_att = Time_att(dims=3).to(device) 
+        self.endp = nn.Linear(modal_nums * d_model, 4).to(device) 
         self.relu = nn.ReLU()
-        self.last = nn.Linear(3, 1).to(device) # 全连接层
-        self.sigmoid = nn.Sigmoid() # sigmoid激活函数
+        self.last = nn.Linear(3, 1).to(device) 
+        self.sigmoid = nn.Sigmoid() 
 
     def forward(self, kp,  center):
 
@@ -102,18 +105,21 @@ class Transformer_based_model(nn.Module):
 
         return pred 
 
+
+
+
+
 class GCN_based_model(nn.Module):
-    def __init__(self,device):
+    def __init__(self,device, args):
         super(GCN_based_model, self).__init__()
-        self.sigma_cls = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的分类损失参数
+        self.sigma_cls = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) 
         nn.init.kaiming_normal_(self.sigma_cls, mode='fan_out') 
-        self.sigma_reg = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的回归损失参数
+        self.sigma_reg = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) 
         nn.init.kaiming_normal_(self.sigma_reg, mode='fan_out')  
         self.device=device
-        d_model = 128
-        hidden_dim = 256
-        modal_nums = 3
-        self.num_layers = 4
+        d_model = args.d_model
+
+        self.num_layers = args.num_layers
         self.token = nn.Parameter(torch.ones(1, 1, d_model)).to(device)
 
         self.center_embedding = EmbedPosEnc(4, d_model,device) 
@@ -121,7 +127,7 @@ class GCN_based_model(nn.Module):
 
 
 
-        A = np.stack([np.eye(16)] * 3, axis=0)
+        A = np.stack([np.eye(16)] * args.num_adj_subset, axis=0)
         self.kp_bn = nn.BatchNorm1d(4 * 16).to(device)
         self.kp_pool = nn.AdaptiveAvgPool2d(1).to(device)
 
@@ -142,8 +148,8 @@ class GCN_based_model(nn.Module):
 
 
         self.relu = nn.ReLU()
-        self.last = nn.Linear(d_model, 1).to(device) # 全连接层
-        self.sigmoid = nn.Sigmoid() # sigmoid激活函数
+        self.last = nn.Linear(d_model, 1).to(device)
+        self.sigmoid = nn.Sigmoid()
 
     def forward(self, kp,  center):
 
@@ -172,24 +178,33 @@ class GCN_based_model(nn.Module):
         return pred 
 
 
+
+
+
+
 class Transformer_GCN_mixing_model(nn.Module):
-    def __init__(self,device):
+    def __init__(self,device, args):
         super(Transformer_GCN_mixing_model, self).__init__()
         self.sigma_cls = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的分类损失参数
         nn.init.kaiming_normal_(self.sigma_cls, mode='fan_out') 
         self.sigma_reg = nn.Parameter(torch.ones(1, 1, requires_grad=True, device=device), requires_grad=True) # 生成一个可训练的回归损失参数
         nn.init.kaiming_normal_(self.sigma_reg, mode='fan_out')  
         self.device=device
-        d_model = 128
-        hidden_dim = 256
+        d_model = args.d_model #128
+        hidden_dim = args.hidden_dim #256
         modal_nums = 3
-        self.num_layers = 4
+        self.num_layers = args.num_layers #4
+
+        self.num_heads= args.num_heads#8
+
         self.token = nn.Parameter(torch.ones(1, 1, d_model)).to(device)
 
         self.center_embedding = EmbedPosEnc(4, d_model,device) 
         self.center_token = nn.Parameter(torch.ones(1, 1, d_model)).to(device)
 
-        A = np.stack([np.eye(15)] * 3, axis=0)
+
+
+        A = np.stack([np.eye(15)] * args.num_adj_subset, axis=0)
         self.kp_bn = nn.BatchNorm1d(4 * 15).to(device)
         self.kp_pool = nn.AdaptiveAvgPool2d(1).to(device)
         bn_init(self.kp_bn, 1)
@@ -210,16 +225,16 @@ class Transformer_GCN_mixing_model(nn.Module):
 
 
         for _ in range(self.num_layers):
-            self.center_att.append(AttentionBlocks(d_model, 8, device=device)) 
+            self.center_att.append(AttentionBlocks(d_model, self.num_heads, device=device)) 
             self.center_ffn.append(FFN(d_model, hidden_dim, device=device))
 
         self.dense = nn.Linear(modal_nums * d_model, 4).to(device)
         self.bottlenecks = Bottlenecks_origin(d_model).to(device)
         self.time_att = Time_att(dims=3).to(device) # Time_att
-        self.endp = nn.Linear(modal_nums * d_model, 4).to(device) # 全连接层
+        self.endp = nn.Linear(modal_nums * d_model, 4).to(device) 
         self.relu = nn.ReLU()
-        self.last = nn.Linear(6, 1).to(device) # 全连接层
-        self.sigmoid = nn.Sigmoid() # sigmoid激活函数
+        self.last = nn.Linear(6, 1).to(device) 
+        self.sigmoid = nn.Sigmoid() 
 
     def forward(self, kp,  center):
 
@@ -275,6 +290,7 @@ class Transformer_GCN_mixing_model(nn.Module):
         pred = self.sigmoid(tmp)
 
         return pred 
+
     
 
 
