@@ -64,6 +64,21 @@ def parse_args():
     parser.add_argument(
         "--load", default=None, type=str
     )
+    parser.add_argument(
+        "--d_model", default=128, type=int
+    )
+    parser.add_argument(
+        "--hidden_dim", default=256, type=int
+    )
+    parser.add_argument(
+        "--num_layers", default=4, type=int
+    )
+    parser.add_argument(
+        "--num_heads", default=8, type=int
+    )
+    parser.add_argument(
+        "--num_adj_subset", default=3, type=int
+    )
     args = parser.parse_args()
     return args
 
