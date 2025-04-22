@@ -75,7 +75,6 @@ We provide each model's weight trained on the SEQ setting.
 |  | GCN | 91.46 | 89.13 | 89.31 | 88.95 | 
 | 4 | Transformer | 94.10 | 92.35 | 94.25 | 90.53 | 
 |  | Transformer+GCN | 93.71 | 91.84 | 93.83 | 89.94 | 
-|----------|----------|---------------|----------------------|-----------------|--------------------|
 
 ## 5. Model Training 
 #### You can skip this step if you use our weight files.
