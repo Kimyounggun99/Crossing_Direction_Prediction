@@ -59,13 +59,27 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 
 ## 4. Model Zoo: TODO
 
-We provide each model's weight trained on the observation time window 4 seconds.
+We provide each model's weight trained on the SEQ setting.
 
-| Model | Accuracy | F1-Score | Precision | Recall | Download |
-|----------|----------------|---------------|----------------------|-----------------|--------------------|
-| GCN |  |  |  |  | [GCN](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FGCN&login_hint=yo171134%40ucf%2Eedu) |
-| Transformer |  |  |  |  | [Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FTransformer&login_hint=yo171134%40ucf%2Eedu) |
-| Transformer+GCN |  |  |  |  | [GCN+Transformer](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FTransformer%2BGCN&login_hint=yo171134%40ucf%2Eedu) |
+| Time | Model | Accuracy | F1-Score | Precision | Recall |
+|----------|----------|---------------|----------------------|-----------------|--------------------|
+|  | GCN | 87.01 | 83.82 | 83.88 | 83.77 | 
+| 1 | Transformer | 91.04 | 88.17 | 93.93 | 83.07 | 
+|  | Transformer+GCN | 89.09 | 86.15 | 87.92 | 84.46 | 
+
+|----------|----------|---------------|----------------------|-----------------|--------------------|
+|  | GCN | 90.23 | 88.22 | 85.01 | 91.68 | 
+| 2 | Transformer | 92.57 | 90.52 | 92.25 | 88.85 | 
+|  | Transformer+GCN | 91.89 | 90.05 | 88.21 | 91.97 |
+|----------|----------|---------------|----------------------|-----------------|--------------------|
+|  | GCN | 87.44 | 84.28 | 83.38 | 85.20 | 
+| 3 | Transformer | 91.86 | 89.67 | 89.93 | 89.40 | 
+|  | Transformer+GCN | 88.65 | 86.40 | 81.29 | 91.29 | 
+|----------|----------|---------------|----------------------|-----------------|--------------------|
+|  | GCN | 91.46 | 89.13 | 89.31 | 88.95 | 
+| 4 | Transformer | 94.10 | 92.35 | 94.25 | 90.53 | 
+|  | Transformer+GCN | 93.71 | 91.84 | 93.83 | 89.94 | 
+|----------|----------|---------------|----------------------|-----------------|--------------------|
 
 ## 5. Model Training 
 #### You can skip this step if you use our weight files.
