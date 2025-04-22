@@ -56,6 +56,7 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 ├── train
 ├── test
 ```
+To request permission to access this dataset, send email to `younggun.kim@ucf.edu`
 
 ## 4. Model Zoo: TODO
 
