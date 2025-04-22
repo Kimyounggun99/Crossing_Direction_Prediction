@@ -59,7 +59,7 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 
 ## 4. Model Zoo: TODO
 
-We provide each model's weight trained on the SEQ setting.
+We provide each model's weight trained on the SEQ setting. If you want to use our weights, refer the `checpoints` folder and skip the `5. Model Training` step.
 
 | Time | Model | Accuracy | F1-Score | Precision | Recall |
 |----------|----------|---------------|----------------------|-----------------|--------------------|
