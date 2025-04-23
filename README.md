@@ -129,8 +129,7 @@ Example (Transformer):
    --model Transformer_based_model \
    --num_layers 3 \
    --num_heads 128 \
-   --load ./checkpoints/Transformer_based_model_observ_4sec.pth \
-   --output_dir ./logs
+   --load ./checkpoints/Transformer_based_model_observ_4sec.pth 
 ```
 
 ## Acknowledgment
