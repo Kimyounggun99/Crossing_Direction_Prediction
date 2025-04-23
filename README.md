@@ -48,7 +48,7 @@ Prepare your dataset by organizing videos from the same CCTV source in the same 
    ```
 
 ### 3-2. Data Preparation to use our data.
-Since visual information from CCTV may occur important privacy issues, We provide only trajectories and key points.
+Since visual data from CCTV may occur important privacy issues, We provide only trajectories and key points.
 Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpersonal%2Fyo171134%5Fucf%5Fedu%2FDocuments%2FCrossing%20Dirrection%20Prediction%2FCCTV%5Fdata&login_hint=yo171134%40ucf%2Eedu) and build following data structure:
 
 ```bash
