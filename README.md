@@ -1,4 +1,4 @@
-# Pedestrian Crossing Intention Prediction at Intersections
+# Pedestrian Crossing Direction Prediction at Intersections for Pedestrian Safety
 
 
 ![GIF Preview](Geo_invariant_gif.gif)
