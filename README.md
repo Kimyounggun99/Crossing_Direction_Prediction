@@ -58,7 +58,7 @@ Download all csv files from [OneDrive](https://ucf-my.sharepoint.com/my?id=%2Fpe
 ```
 To request permission to access this dataset, send email to `younggun.kim@ucf.edu`
 
-## 4. Model Zoo: TODO
+## 4. Model Zoo
 
 We provide each model's weight trained on the SEQ setting. If you want to use our weights, refer the `checpoints` folder and skip the `5. Model Training` step.
 
